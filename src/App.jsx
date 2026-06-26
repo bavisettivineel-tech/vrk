@@ -113,51 +113,53 @@ function Hero() {
       <div style={{ position: "absolute", top: "20%", right: "10%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", bottom: "10%", left: "5%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(74,158,255,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-      <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 780 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.3)", borderRadius: 50, padding: "8px 20px", marginBottom: 32 }} className="animate-fadeInUp">
-            <Zap size={14} color="var(--gold)" />
-            <span style={{ fontFamily: "Montserrat", fontSize: "0.78rem", fontWeight: 700, letterSpacing: 2, color: "var(--gold)", textTransform: "uppercase" }}>Digital Agency · Kakinada, AP</span>
-          </div>
-          <h1 style={{ fontSize: "clamp(2.4rem, 6vw, 4.8rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 28 }} className="animate-fadeInUp">
-            We <span className="shimmer-text">Build.</span><br />
-            We <span className="shimmer-text">Scale.</span><br />
-            We <span className="shimmer-text">Dominate.</span>
-          </h1>
-          <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "var(--gray-light)", maxWidth: 560, lineHeight: 1.8, marginBottom: 44 }} className="animate-fadeInUp">
-            VRK Solutions crafts powerful digital experiences — from blazing-fast websites to enterprise ERP systems — that turn your vision into unstoppable growth.
-          </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }} className="animate-fadeInUp">
-            <a href="https://wa.me/919398845947?text=Hi%20VRK%20Solutions!%20I%20want%20a%20free%20consultation." target="_blank" rel="noreferrer" className="btn-primary">
-              Start Your Project <ArrowRight size={16} />
-            </a>
-            <button onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline">
-              Explore Services
-            </button>
+      <div className="container" style={{ position: "relative", zIndex: 1, width: "100%" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, width: "100%", flexWrap: "wrap" }}>
+          <div style={{ maxWidth: 780, flex: "1 1 auto" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.3)", borderRadius: 50, padding: "8px 20px", marginBottom: 32 }} className="animate-fadeInUp">
+              <Zap size={14} color="var(--gold)" />
+              <span style={{ fontFamily: "Montserrat", fontSize: "0.78rem", fontWeight: 700, letterSpacing: 2, color: "var(--gold)", textTransform: "uppercase" }}>Digital Agency · Kakinada, AP</span>
+            </div>
+            <h1 style={{ fontSize: "clamp(2.4rem, 6vw, 4.8rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 28 }} className="animate-fadeInUp">
+              We <span className="shimmer-text">Build.</span><br />
+              We <span className="shimmer-text">Scale.</span><br />
+              We <span className="shimmer-text">Dominate.</span>
+            </h1>
+            <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "var(--gray-light)", maxWidth: 560, lineHeight: 1.8, marginBottom: 44 }} className="animate-fadeInUp">
+              VRK Solutions crafts powerful digital experiences — from blazing-fast websites to enterprise ERP systems — that turn your vision into unstoppable growth.
+            </p>
+            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }} className="animate-fadeInUp">
+              <a href="https://wa.me/919398845947?text=Hi%20VRK%20Solutions!%20I%20want%20a%20free%20consultation." target="_blank" rel="noreferrer" className="btn-primary">
+                Start Your Project <ArrowRight size={16} />
+              </a>
+              <button onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })} className="btn-outline">
+                Explore Services
+              </button>
+            </div>
+
+            {/* Stats */}
+            <div className="hero-stats">
+              {[["30+","Projects Delivered"],["20+","Happy Clients"],["6+","Services Offered"],["100%","Client Satisfaction"]].map(([n, l]) => (
+                <div key={l} className="animate-fadeInUp">
+                  <div style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900, fontFamily: "Montserrat" }} className="gold-text">{n}</div>
+                  <div style={{ fontSize: "0.78rem", color: "var(--gray)", fontWeight: 500, letterSpacing: 0.5, marginTop: 4 }}>{l}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Stats */}
-          <div className="hero-stats">
-            {[["30+","Projects Delivered"],["20+","Happy Clients"],["6+","Services Offered"],["100%","Client Satisfaction"]].map(([n, l]) => (
-              <div key={l} className="animate-fadeInUp">
-                <div style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900, fontFamily: "Montserrat" }} className="gold-text">{n}</div>
-                <div style={{ fontSize: "0.78rem", color: "var(--gray)", fontWeight: 500, letterSpacing: 0.5, marginTop: 4 }}>{l}</div>
-              </div>
-            ))}
+          {/* Floating badge — desktop only via CSS class */}
+          <div className="animate-float hero-badge" style={{
+            background: "linear-gradient(135deg, var(--navy-light), var(--card-bg))",
+            border: "1px solid var(--border)", borderRadius: 16, padding: "20px 28px",
+            flexDirection: "column", gap: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
+            flexShrink: 0
+          }}>
+            <div style={{ display: "flex", gap: 4 }}>{[1,2,3,4,5].map(i => <Star key={i} size={14} fill="var(--gold)" color="var(--gold)" />)}</div>
+            <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: "1.1rem", color: "var(--white)" }}>5.0 Rating</div>
+            <div style={{ fontSize: "0.72rem", color: "var(--gray)", fontWeight: 500 }}>Trusted by Clients</div>
           </div>
         </div>
-      </div>
-
-      {/* Floating badge — desktop only via CSS class */}
-      <div className="animate-float hero-badge" style={{
-        position: "absolute", right: "8%", top: "35%",
-        background: "linear-gradient(135deg, var(--navy-light), var(--card-bg))",
-        border: "1px solid var(--border)", borderRadius: 16, padding: "20px 28px",
-        flexDirection: "column", gap: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)"
-      }}>
-        <div style={{ display: "flex", gap: 4 }}>{[1,2,3,4,5].map(i => <Star key={i} size={14} fill="var(--gold)" color="var(--gold)" />)}</div>
-        <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: "1.1rem", color: "var(--white)" }}>5.0 Rating</div>
-        <div style={{ fontSize: "0.72rem", color: "var(--gray)", fontWeight: 500 }}>Trusted by Clients</div>
       </div>
 
       {/* Scroll indicator */}
