@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://vrksolutions.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
+
+# Block irrelevant paths
+Disallow: /src/
+Disallow: /*.map$
