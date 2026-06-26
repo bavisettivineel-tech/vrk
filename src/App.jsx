@@ -43,14 +43,16 @@ function Navbar() {
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
         <img src={logo} alt="VRK Solutions" style={{ height: 44, width: "auto", objectFit: "contain" }} />
-        <ul style={{ display: "flex", gap: 36, listStyle: "none", alignItems: "center" }} className="nav-desktop">
+
+        {/* Desktop Nav */}
+        <ul className="nav-desktop" style={{ gap: 36, listStyle: "none", alignItems: "center" }}>
           {links.map(l => (
             <li key={l}>
               <button onClick={() => scrollTo(l)} style={{
                 background: "none", border: "none", color: "var(--gray-light)",
                 fontFamily: "Montserrat, sans-serif", fontWeight: 600, fontSize: "0.85rem",
                 letterSpacing: "0.5px", cursor: "pointer", transition: "color 0.3s",
-                padding: "4px 0", position: "relative"
+                padding: "4px 0"
               }}
               onMouseEnter={e => e.target.style.color = "var(--gold)"}
               onMouseLeave={e => e.target.style.color = "var(--gray-light)"}
@@ -59,10 +61,19 @@ function Navbar() {
           ))}
           <li><a href="https://wa.me/919398845947" target="_blank" rel="noreferrer" className="btn-primary" style={{ padding: "10px 24px", fontSize: "0.82rem" }}>Get Quote</a></li>
         </ul>
-        <button onClick={() => setOpen(!open)} style={{ display: "none", background: "none", border: "none", color: "var(--gold)", cursor: "pointer" }} className="nav-hamburger">
+
+        {/* Hamburger */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="nav-hamburger"
+          aria-label="Toggle menu"
+          style={{ background: "none", border: "none", color: "var(--gold)", cursor: "pointer", alignItems: "center", justifyContent: "center" }}
+        >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
+
+      {/* Mobile Menu */}
       {open && (
         <div style={{
           background: "rgba(10,15,30,0.98)", padding: "20px 24px 30px",
@@ -80,12 +91,6 @@ function Navbar() {
           <a href="https://wa.me/919398845947" target="_blank" rel="noreferrer" className="btn-primary" style={{ marginTop: 20, display: "inline-flex" }}>Get Free Quote</a>
         </div>
       )}
-      <style>{`
-        @media (max-width: 768px) {
-          .nav-desktop { display: none !important; }
-          .nav-hamburger { display: block !important; }
-        }
-      `}</style>
     </nav>
   );
 }
@@ -114,12 +119,12 @@ function Hero() {
             <Zap size={14} color="var(--gold)" />
             <span style={{ fontFamily: "Montserrat", fontSize: "0.78rem", fontWeight: 700, letterSpacing: 2, color: "var(--gold)", textTransform: "uppercase" }}>Digital Agency · Kakinada, AP</span>
           </div>
-          <h1 style={{ fontSize: "clamp(2.6rem, 6vw, 4.8rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 28 }} className="animate-fadeInUp">
+          <h1 style={{ fontSize: "clamp(2.4rem, 6vw, 4.8rem)", fontWeight: 900, lineHeight: 1.08, marginBottom: 28 }} className="animate-fadeInUp">
             We <span className="shimmer-text">Build.</span><br />
             We <span className="shimmer-text">Scale.</span><br />
             We <span className="shimmer-text">Dominate.</span>
           </h1>
-          <p style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)", color: "var(--gray-light)", maxWidth: 560, lineHeight: 1.8, marginBottom: 44 }} className="animate-fadeInUp">
+          <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "var(--gray-light)", maxWidth: 560, lineHeight: 1.8, marginBottom: 44 }} className="animate-fadeInUp">
             VRK Solutions crafts powerful digital experiences — from blazing-fast websites to enterprise ERP systems — that turn your vision into unstoppable growth.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }} className="animate-fadeInUp">
@@ -130,11 +135,12 @@ function Hero() {
               Explore Services
             </button>
           </div>
+
           {/* Stats */}
-          <div style={{ display: "flex", gap: 48, marginTop: 72, flexWrap: "wrap" }}>
+          <div className="hero-stats">
             {[["30+","Projects Delivered"],["20+","Happy Clients"],["6+","Services Offered"],["100%","Client Satisfaction"]].map(([n, l]) => (
               <div key={l} className="animate-fadeInUp">
-                <div style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)", fontWeight: 900, fontFamily: "Montserrat" }} className="gold-text">{n}</div>
+                <div style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: 900, fontFamily: "Montserrat" }} className="gold-text">{n}</div>
                 <div style={{ fontSize: "0.78rem", color: "var(--gray)", fontWeight: 500, letterSpacing: 0.5, marginTop: 4 }}>{l}</div>
               </div>
             ))}
@@ -142,20 +148,19 @@ function Hero() {
         </div>
       </div>
 
-      {/* Floating badge — desktop only */}
+      {/* Floating badge — desktop only via CSS class */}
       <div className="animate-float hero-badge" style={{
         position: "absolute", right: "8%", top: "35%",
         background: "linear-gradient(135deg, var(--navy-light), var(--card-bg))",
         border: "1px solid var(--border)", borderRadius: 16, padding: "20px 28px",
-        display: "flex", flexDirection: "column", gap: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)"
+        flexDirection: "column", gap: 6, boxShadow: "0 20px 60px rgba(0,0,0,0.5)"
       }}>
         <div style={{ display: "flex", gap: 4 }}>{[1,2,3,4,5].map(i => <Star key={i} size={14} fill="var(--gold)" color="var(--gold)" />)}</div>
         <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: "1.1rem", color: "var(--white)" }}>5.0 Rating</div>
         <div style={{ fontSize: "0.72rem", color: "var(--gray)", fontWeight: 500 }}>Trusted by Clients</div>
       </div>
-      <style>{`.hero-badge { } @media (max-width: 900px) { .hero-badge { display: none !important; } }`}</style>
 
-      {/* scroll indicator */}
+      {/* Scroll indicator */}
       <div style={{ position: "absolute", bottom: 36, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
         <div style={{ width: 1, height: 50, background: "linear-gradient(to bottom, var(--gold), transparent)", animation: "fadeInUp 2s ease infinite" }} />
       </div>
@@ -187,7 +192,7 @@ function Services() {
             Six specialized services. One mission: make your business unstoppable in the digital world.
           </p>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
+        <div className="services-grid">
           {services.map(({ icon: Icon, title, desc, tags }, i) => (
             <div key={title} className="reveal" style={{
               background: "var(--card-bg)", border: "1px solid var(--border)",
@@ -228,7 +233,7 @@ function About() {
   return (
     <section id="about" className="section-pad" style={{ background: "var(--navy)", position: "relative" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+        <div className="about-grid">
           {/* Left */}
           <div>
             <span className="section-label reveal">Who We Are</span>
@@ -247,7 +252,7 @@ function About() {
             </a>
           </div>
           {/* Right */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div className="about-points-grid">
             {points.map(({ icon: Icon, t, d }, i) => (
               <div key={t} className="reveal" style={{
                 background: "var(--card-bg)", border: "1px solid var(--border)",
@@ -267,11 +272,6 @@ function About() {
           </div>
         </div>
       </div>
-      <style>{`
-        @media (max-width: 768px) {
-          #about .container > div { grid-template-columns: 1fr !important; gap: 48px !important; }
-        }
-      `}</style>
     </section>
   );
 }
@@ -296,7 +296,7 @@ function Testimonials() {
             What Our Clients <span className="gold-text">Say</span>
           </h2>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
+        <div className="testimonials-grid">
           {reviews.map(({ name, role, stars, text }, i) => (
             <div key={name} className="reveal" style={{
               background: "var(--card-bg)", border: "1px solid var(--border)",
@@ -312,7 +312,7 @@ function Testimonials() {
               </div>
               <p style={{ color: "var(--gray-light)", lineHeight: 1.8, fontSize: "0.88rem", marginBottom: 28, fontStyle: "italic" }}>"{text}"</p>
               <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, var(--gold), var(--gold-dark))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Montserrat", fontWeight: 800, fontSize: "1rem", color: "var(--navy)" }}>
+                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, var(--gold), var(--gold-dark))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Montserrat", fontWeight: 800, fontSize: "1rem", color: "var(--navy)", flexShrink: 0 }}>
                   {name.charAt(0)}
                 </div>
                 <div>
@@ -344,6 +344,10 @@ function Contact() {
     fontFamily: "Inter, sans-serif", fontSize: "0.9rem", outline: "none",
     transition: "border-color 0.3s ease"
   };
+  const labelStyle = {
+    display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)",
+    marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase"
+  };
   return (
     <section id="contact" className="section-pad" style={{ background: "var(--navy)", position: "relative" }}>
       <div className="container">
@@ -357,7 +361,7 @@ function Contact() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: 60, alignItems: "start" }}>
+        <div className="contact-grid">
           {/* Info */}
           <div>
             <h3 style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: "1.4rem", marginBottom: 32, color: "var(--white)" }} className="reveal">Contact Information</h3>
@@ -372,14 +376,16 @@ function Contact() {
                 </div>
                 <div>
                   <div style={{ fontSize: "0.75rem", color: "var(--gray)", fontWeight: 600, letterSpacing: 0.5, marginBottom: 4, textTransform: "uppercase", fontFamily: "Montserrat" }}>{label}</div>
-                  {href ? <a href={href} style={{ color: "var(--gray-light)", textDecoration: "none", fontSize: "0.92rem", fontWeight: 500, transition: "color 0.3s" }}
-                    onMouseEnter={e => e.target.style.color = "var(--gold)"}
-                    onMouseLeave={e => e.target.style.color = "var(--gray-light)"}
-                  >{val}</a> : <span style={{ color: "var(--gray-light)", fontSize: "0.92rem" }}>{val}</span>}
+                  {href
+                    ? <a href={href} style={{ color: "var(--gray-light)", textDecoration: "none", fontSize: "0.92rem", fontWeight: 500, transition: "color 0.3s" }}
+                        onMouseEnter={e => e.target.style.color = "var(--gold)"}
+                        onMouseLeave={e => e.target.style.color = "var(--gray-light)"}
+                      >{val}</a>
+                    : <span style={{ color: "var(--gray-light)", fontSize: "0.92rem" }}>{val}</span>}
                 </div>
               </div>
             ))}
-            <div className="reveal" style={{ marginTop: 48, padding: "28px", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 12 }}>
+            <div className="reveal" style={{ marginTop: 16, padding: "28px", background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 12 }}>
               <div style={{ fontFamily: "Montserrat", fontWeight: 700, fontSize: "0.9rem", marginBottom: 8, color: "var(--gold)" }}>Free Consultation</div>
               <p style={{ color: "var(--gray)", fontSize: "0.82rem", lineHeight: 1.7 }}>We offer a free 30-minute consultation for all new projects. No commitment required.</p>
             </div>
@@ -387,28 +393,28 @@ function Contact() {
 
           {/* Form */}
           <div className="reveal" style={{ background: "var(--card-bg)", border: "1px solid var(--border)", borderRadius: 16, padding: "44px 40px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, marginBottom: 18 }}>
+            <div className="contact-form-row">
               <div>
-                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)", marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase" }}>Your Name *</label>
+                <label style={labelStyle}>Your Name *</label>
                 <input name="name" value={form.name} onChange={handleChange} placeholder="Ravi Kumar" style={inputStyle}
                   onFocus={e => e.target.style.borderColor = "var(--gold)"}
                   onBlur={e => e.target.style.borderColor = "var(--border)"} />
               </div>
               <div>
-                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)", marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase" }}>Phone Number *</label>
+                <label style={labelStyle}>Phone Number *</label>
                 <input name="phone" value={form.phone} onChange={handleChange} placeholder="+91 XXXXX XXXXX" style={inputStyle}
                   onFocus={e => e.target.style.borderColor = "var(--gold)"}
                   onBlur={e => e.target.style.borderColor = "var(--border)"} />
               </div>
             </div>
             <div style={{ marginBottom: 18 }}>
-              <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)", marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase" }}>Email Address</label>
+              <label style={labelStyle}>Email Address</label>
               <input name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" style={inputStyle}
                 onFocus={e => e.target.style.borderColor = "var(--gold)"}
                 onBlur={e => e.target.style.borderColor = "var(--border)"} />
             </div>
             <div style={{ marginBottom: 18 }}>
-              <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)", marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase" }}>Service Required</label>
+              <label style={labelStyle}>Service Required</label>
               <select name="service" value={form.service} onChange={handleChange} style={{ ...inputStyle, cursor: "pointer" }}
                 onFocus={e => e.target.style.borderColor = "var(--gold)"}
                 onBlur={e => e.target.style.borderColor = "var(--border)"}>
@@ -423,7 +429,7 @@ function Contact() {
               </select>
             </div>
             <div style={{ marginBottom: 28 }}>
-              <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, color: "var(--gray)", marginBottom: 8, fontFamily: "Montserrat", letterSpacing: 0.5, textTransform: "uppercase" }}>Tell Us About Your Project</label>
+              <label style={labelStyle}>Tell Us About Your Project</label>
               <textarea name="message" value={form.message} onChange={handleChange} placeholder="Brief description of your project..." rows={4} style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }}
                 onFocus={e => e.target.style.borderColor = "var(--gold)"}
                 onBlur={e => e.target.style.borderColor = "var(--border)"} />
@@ -435,13 +441,6 @@ function Contact() {
           </div>
         </div>
       </div>
-      <style>{`
-        @media (max-width: 768px) {
-          #contact .container > div > div:last-child { grid-column: 1 !important; }
-          #contact .container > div { grid-template-columns: 1fr !important; gap: 40px !important; }
-          #contact .container > div > div:last-child > div:first-child { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }
@@ -503,7 +502,7 @@ function Footer() {
   return (
     <footer style={{ background: "#060A14", borderTop: "1px solid var(--border)", padding: "64px 0 0" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 60, marginBottom: 60 }}>
+        <div className="footer-grid">
           <div>
             <img src={logo} alt="VRK Solutions" style={{ height: 48, width: "auto", marginBottom: 24, objectFit: "contain" }} />
             <p style={{ color: "var(--gray)", lineHeight: 1.8, fontSize: "0.88rem", maxWidth: 300, marginBottom: 28 }}>
@@ -537,17 +536,11 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div style={{ borderTop: "1px solid var(--border)", padding: "24px 0", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div className="footer-bottom">
           <p style={{ color: "var(--gray)", fontSize: "0.8rem" }}>© 2026 VRK Solutions. All rights reserved.</p>
           <p style={{ color: "var(--gray)", fontSize: "0.8rem" }}>Crafted with excellence in Kakinada, AP</p>
         </div>
       </div>
-      <style>{`
-        @media (max-width: 768px) {
-          footer .container > div:first-child { grid-template-columns: 1fr !important; gap: 40px !important; }
-          footer .container > div:last-child { flex-direction: column; text-align: center; }
-        }
-      `}</style>
     </footer>
   );
 }
@@ -562,12 +555,12 @@ function WhatsAppFloat() {
         background: "linear-gradient(135deg, #25D366, #1DA851)",
         display: "flex", alignItems: "center", justifyContent: "center",
         boxShadow: "0 6px 30px rgba(37,211,102,0.45)",
-        animation: "pulse-gold 2.5s ease-in-out infinite",
+        animation: "wa-pulse 2.5s ease-in-out infinite",
         textDecoration: "none"
       }}>
       <MessageCircle size={28} color="white" fill="white" />
       <style>{`
-        @keyframes pulse-gold {
+        @keyframes wa-pulse {
           0%,100% { box-shadow: 0 6px 30px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4); }
           50% { box-shadow: 0 6px 30px rgba(37,211,102,0.45), 0 0 0 14px rgba(37,211,102,0); }
         }
@@ -582,14 +575,14 @@ export default function App() {
   return (
     <>
       <Navbar />
-    <main role="main">
-      <Hero />
-      <Services />
-      <About />
-      <Testimonials />
-      <FAQ />
-      <Contact />
-    </main>
+      <main role="main">
+        <Hero />
+        <Services />
+        <About />
+        <Testimonials />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
       <WhatsAppFloat />
     </>

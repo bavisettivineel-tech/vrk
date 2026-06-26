@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-/* Animations */
+/* ─── ANIMATIONS ─── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -63,10 +63,6 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-@keyframes countUp {
-  from { opacity: 0; transform: scale(0.5); }
-  to { opacity: 1; transform: scale(1); }
-}
 
 .animate-fadeInUp { animation: fadeInUp 0.7s ease forwards; }
 .animate-fadeInLeft { animation: fadeInLeft 0.7s ease forwards; }
@@ -76,6 +72,7 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ─── UTILITY ─── */
 .gold-text {
   background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
   -webkit-background-clip: text;
@@ -95,6 +92,7 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
 .section-pad { padding: 100px 0; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+/* ─── BUTTONS ─── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -142,6 +140,7 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
   box-shadow: 0 8px 30px rgba(201,168,76,0.3);
 }
 
+/* ─── SECTION LABELS ─── */
 .section-label {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -180,7 +179,210 @@ h1,h2,h3,h4,h5 { font-family: 'Montserrat', sans-serif; }
   margin: 24px 0;
 }
 
+/* ═══════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════ */
+.nav-desktop { display: flex; }
+.nav-hamburger { display: none !important; }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero-badge { display: flex; }
+.hero-stats { display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════
+   SERVICES GRID
+═══════════════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ═══════════════════════════════════════════
+   ABOUT GRID
+═══════════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-points-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS GRID
+═══════════════════════════════════════════ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT GRID
+═══════════════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER GRID
+═══════════════════════════════════════════ */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ═══════════════════════════════════════════
+   TABLET: 769px – 1024px
+═══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .section-pad { padding: 80px 0; }
+  .container { padding: 0 20px; }
+
+  /* Services: 2 columns on tablet */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* About: stack on tablet */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .about-points-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  /* Testimonials: 2 columns on tablet */
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Contact: stack on tablet */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* Footer: 2 columns on tablet */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  /* Hero stats tighter */
+  .hero-stats { gap: 32px; margin-top: 56px; }
+
+  /* Hero badge hidden on tablet */
+  .hero-badge { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE: ≤ 768px
+═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .section-pad { padding: 70px 0; }
+  .section-pad { padding: 64px 0; }
   .container { padding: 0 16px; }
+
+  /* Navbar */
+  .nav-desktop { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+
+  /* Services: single column */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* About: single column */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-points-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* Testimonials: single column */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .contact-form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  /* Hero stats */
+  .hero-stats { gap: 24px; margin-top: 48px; }
+  .hero-stats > div { min-width: calc(50% - 12px); }
+}
+
+/* ═══════════════════════════════════════════
+   SMALL MOBILE: ≤ 480px
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .section-pad { padding: 56px 0; }
+  .container { padding: 0 14px; }
+
+  .about-points-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .hero-stats { gap: 20px; }
+  .hero-stats > div { min-width: 40%; }
+
+  .btn-primary, .btn-outline {
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
 }
