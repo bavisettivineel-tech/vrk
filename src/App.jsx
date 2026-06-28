@@ -341,7 +341,7 @@ function FAQ() {
     { q:"Does VRK Solutions develop custom ERP systems?",               a:"Yes. VRK Solutions builds fully custom ERP systems including inventory management, HR, finance, CRM and operations modules for businesses in Kakinada and across India." },
     { q:"Does VRK Solutions provide SEO services near me in Kakinada?", a:"Yes. VRK Solutions provides complete local and national SEO services — on-page SEO, technical SEO, Google Business Profile optimisation, link building and Google Search Console setup — to rank your business on top of Google." },
     { q:"What is the best digital agency near Kakinada, AP?",           a:"VRK Solutions is the top-rated digital agency in Kakinada, Andhra Pradesh offering website development, app development, ERP, SaaS, SEO and digital marketing services. Contact us at +91 93988 45947." },
-    { q:"How do I contact VRK Solutions?",                              a:"You can reach VRK Solutions via WhatsApp at +91 93988 45947, by email at vrksolutionsinfo@gmail.com, or through the contact form on this website. We respond within 2 hours on business days." },
+    { q:"How do I contact VRK Solutions?",                              a:"You can reach VRK Solutions via WhatsApp at +91 93988 45947, by email at info@vrksolutions.in, or through the contact form on this website. We respond within 2 hours on business days." },
   ];
   return (
     <section id="faq" aria-label="Frequently Asked Questions about VRK Solutions" className="section-pad"
@@ -410,7 +410,7 @@ function Contact() {
             </h3>
             {[
               { icon:MessageCircle, label:"WhatsApp / Call", val:"+91 93988 45947",          href:"https://wa.me/919398845947" },
-              { icon:Mail,          label:"Email",           val:"vrksolutionsinfo@gmail.com", href:"mailto:vrksolutionsinfo@gmail.com" },
+              { icon:Mail,          label:"Email",           val:"info@vrksolutions.in", href:"mailto:info@vrksolutions.in" },
               { icon:MapPin,        label:"Location",        val:"Kakinada, Andhra Pradesh, India", href:null },
             ].map(({ icon:Icon, label, val, href }) => (
               <div key={label} className="reveal" style={{ display:"flex", gap:18, marginBottom:32 }}>
@@ -523,10 +523,10 @@ function Footer() {
               itemScope itemType="https://schema.org/LocalBusiness">
               <meta itemProp="name" content="VRK Solutions" />
               <meta itemProp="telephone" content="+919398845947" />
-              <a href="mailto:vrksolutionsinfo@gmail.com" itemProp="email"
+              <a href="mailto:info@vrksolutions.in" itemProp="email"
                 style={{ color:"var(--gray)", fontSize:".85rem", textDecoration:"none", display:"flex", alignItems:"flex-start", gap:10 }}>
                 <Mail size={15} color="var(--gold)" style={{ marginTop:2, flexShrink:0 }} aria-hidden="true" />
-                vrksolutionsinfo@gmail.com
+                info@vrksolutions.in
               </a>
               <address style={{ fontStyle:"normal", color:"var(--gray)", fontSize:".85rem", display:"flex", alignItems:"flex-start", gap:10 }}
                 itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
